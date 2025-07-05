@@ -1,8 +1,8 @@
 class SampleWorker
   include Sidekiq::Worker
+  sidekiq_options queue: "default"
 
-  def perform(name)
-    # ここに非同期処理のロジックを実装
-    Rails.logger.info "SampleWorker: Hello, #{name}!"
+  def perform(name, number)
+    Rails.logger.info "SampleWorker: Hello, #{name}! #{number}"
   end
 end
